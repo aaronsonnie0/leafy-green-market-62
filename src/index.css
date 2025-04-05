@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @tailwind base;
@@ -101,15 +102,15 @@
   }
 
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl font-bold;
+    @apply text-4xl md:text-5xl lg:text-6xl font-medium;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl font-semibold;
+    @apply text-3xl md:text-4xl font-medium;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl font-semibold;
+    @apply text-2xl md:text-3xl font-medium;
   }
   
   h4 {
@@ -121,7 +122,7 @@
   }
   
   p {
-    @apply text-base text-gray-600 dark:text-gray-300 leading-relaxed;
+    @apply text-base text-gray-600 dark:text-gray-300 leading-relaxed font-light;
   }
   
   small {
@@ -207,6 +208,7 @@
   }
 }
 
+/* Remove unused styles from App.css */
 #root {
   max-width: 1280px;
   margin: 0 auto;

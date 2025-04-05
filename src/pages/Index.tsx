@@ -24,11 +24,11 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-6 leading-tight">
+              <h1 className="font-serif font-medium text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-6 leading-tight tracking-wide">
                 Bring Nature's Beauty <br className="hidden md:block" />
                 <span className="text-leaf-600">Into Your Home</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
+              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg font-light">
                 Discover our curated collection of beautiful plants, stylish pots, and essential accessories to create your own indoor oasis.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -132,33 +132,37 @@ const Index = () => {
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             <CategoryCard
-              title="Indoor Plants"
+              title="Plants"
               description="Perfect for purifying air and adding life to your space"
               link="/category/plants"
+              icon="plants"
               bgColor="bg-[#F2FCE2]"
               delay={0.1}
             />
             
             <CategoryCard
-              title="Designer Pots"
+              title="Pots"
               description="Stylish containers that complement your home décor"
               link="/category/pots"
+              icon="pots"
               bgColor="bg-[#FDE1D3]"
               delay={0.2}
             />
             
             <CategoryCard
-              title="Plant Care"
+              title="Accessories"
               description="Everything you need to keep your plants thriving"
               link="/category/accessories"
+              icon="accessories"
               bgColor="bg-[#D3E4FD]"
               delay={0.3}
             />
             
             <CategoryCard
-              title="Gift Sets"
-              description="Pre-arranged combinations for the perfect present"
-              link="/new-arrivals"
+              title="Care Guides"
+              description="Expert advice to help your plants flourish"
+              link="/care-guides"
+              icon="care"
               bgColor="bg-[#F1F0FB]"
               delay={0.4}
             />
@@ -217,10 +221,10 @@ const Index = () => {
                     </svg>
                   ))}
                 </div>
-                <p className="italic mb-4">
+                <p className="italic mb-4 font-light">
                   "The plants I received were incredibly healthy and even more beautiful than the pictures. The care instructions were clear and helpful."
                 </p>
-                <div className="font-semibold">Customer {i}</div>
+                <div className="font-medium">Customer {i}</div>
               </motion.div>
             ))}
           </div>
@@ -237,8 +241,8 @@ const Index = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-4">Join Our Newsletter</h2>
-              <p className="text-gray-600 mb-8">
+              <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">Join Our Newsletter</h2>
+              <p className="text-gray-600 mb-8 font-light">
                 Sign up to receive updates on new plants, care tips, and exclusive offers.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mx-auto justify-center">

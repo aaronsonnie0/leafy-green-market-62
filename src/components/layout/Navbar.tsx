@@ -51,8 +51,9 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-serif font-bold text-leaf-600 dark:text-leaf-400">Greens</span>
-              <span className="ml-1 text-2xl font-serif text-soil-500 dark:text-soil-400">& Pots</span>
+              <span className="text-2xl font-serif font-normal tracking-wider text-foreground">
+                GREENS & POTS
+              </span>
             </Link>
           </motion.div>
 
@@ -62,8 +63,6 @@ const Navbar = () => {
             <NavLink to="/category/pots">Pots</NavLink>
             <NavLink to="/category/accessories">Accessories</NavLink>
             <NavLink to="/care-guides">Care Guides</NavLink>
-            <NavLink to="/new-arrivals">New Arrivals</NavLink>
-            <NavLink to="/about">About Us</NavLink>
           </div>
 
           {/* Cart and search */}
@@ -130,9 +129,8 @@ const Navbar = () => {
               <NavLink to="/category/pots" mobile>Pots</NavLink>
               <NavLink to="/category/accessories" mobile>Accessories</NavLink>
               <NavLink to="/care-guides" mobile>Care Guides</NavLink>
-              <NavLink to="/new-arrivals" mobile>New Arrivals</NavLink>
-              <NavLink to="/about" mobile>About Us</NavLink>
               <NavLink to="/wishlist" mobile>Wishlist</NavLink>
+              <NavLink to="/about" mobile>About Us</NavLink>
             </div>
           </motion.div>
         )}
@@ -153,7 +151,7 @@ const NavLink = ({ to, children, mobile = false }: NavLinkProps) => {
   
   const baseClasses = "transition-colors duration-200";
   const mobileClasses = "block py-2 text-base";
-  const desktopClasses = "inline-block animated-border text-foreground";
+  const desktopClasses = "inline-block animated-border text-foreground uppercase tracking-wide text-sm font-medium";
   const activeClasses = "text-leaf-600 dark:text-leaf-400 font-medium";
   const inactiveClasses = "text-gray-700 dark:text-gray-300 hover:text-leaf-600 dark:hover:text-leaf-400";
   
