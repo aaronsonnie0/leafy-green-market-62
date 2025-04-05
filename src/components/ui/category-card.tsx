@@ -2,7 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Leaf, Package, Flower2, Palmtree } from "lucide-react";
+import { ArrowRight, Leaf, Package, Flower2, PalmTree } from "lucide-react";
 
 interface CategoryCardProps {
   title: string;
@@ -24,7 +24,7 @@ export function CategoryCard({
   const getIcon = () => {
     switch (iconName) {
       case "plant":
-        return <Palmtree className="h-8 w-8 text-leaf-600" />;
+        return <PalmTree className="h-8 w-8 text-leaf-600" />;
       case "pot":
         return <Package className="h-8 w-8 text-leaf-600" />;
       case "accessory":
