@@ -5,7 +5,8 @@ import { Product } from "@/data/products";
 import { useCart } from "@/hooks/use-cart";
 import { useWishlist } from "@/hooks/use-wishlist";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart, Heart } from "lucide-react";
+import { ShoppingCart, Heart, Plus } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface ProductCardProps {
   product: Product;
@@ -40,61 +41,90 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   };
 
   return (
-    <Link to={`/product/${product.id}`} className="product-card group block">
-      <div className="aspect-square overflow-hidden relative">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-        />
-        {product.salePrice && (
-          <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded-full">
-            SALE
-          </div>
-        )}
-        <button 
-          onClick={handleWishlistToggle}
-          className="absolute top-2 left-2 bg-white rounded-full p-2 shadow-md hover:bg-gray-100 transition-colors"
-        >
-          <Heart size={16} fill={isInWishlist(product.id) ? "#ef4444" : "none"} color={isInWishlist(product.id) ? "#ef4444" : "#71717a"} />
-        </button>
-      </div>
-      
-      <div className="p-4">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="font-medium text-gray-800">{product.name}</h3>
-            <p className="text-sm text-gray-500 mt-1">{product.category}</p>
-          </div>
-          <div className="flex items-center">
-            {product.salePrice ? (
-              <div className="text-right">
-                <span className="text-gray-400 line-through text-sm mr-2">
-                  ${product.price.toFixed(2)}
-                </span>
-                <span className="font-semibold text-red-500">
-                  ${product.salePrice.toFixed(2)}
-                </span>
-              </div>
-            ) : (
-              <span className="font-semibold text-gray-800">
-                ${product.price.toFixed(2)}
-              </span>
-            )}
-          </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      whileHover={{ y: -5 }}
+      className="h-full"
+    >
+      <Link to={`/product/${product.id}`} className="premium-card group block h-full">
+        <div className="aspect-square overflow-hidden relative rounded-t-xl">
+          <motion.img
+            src={product.image}
+            alt={product.name}
+            className="w-full h-full object-cover"
+            whileHover={{ scale: 1.05 }}
+            transition={{ duration: 0.4 }}
+          />
+          
+          {product.salePrice && (
+            <div className="absolute top-3 right-3 glassmorphism text-red-500 text-xs font-bold px-3 py-1 rounded-full">
+              SALE
+            </div>
+          )}
+          
+          <motion.button 
+            onClick={handleWishlistToggle}
+            className="absolute top-3 left-3 glassmorphism rounded-full p-2 hover:bg-white/80 dark:hover:bg-black/50 transition-colors"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+          >
+            <Heart 
+              size={18} 
+              fill={isInWishlist(product.id) ? "#ef4444" : "none"} 
+              color={isInWishlist(product.id) ? "#ef4444" : "#71717a"} 
+            />
+          </motion.button>
+
+          <motion.div 
+            className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300"
+            initial={false}
+            whileHover={{ backgroundColor: "rgba(0,0,0,0.1)" }}
+          />
         </div>
         
-        <div className="mt-4">
-          <Button 
-            onClick={handleAddToCart}
-            className="w-full bg-leaf-600 hover:bg-leaf-700 text-white flex items-center justify-center gap-2"
-          >
-            <ShoppingCart size={16} />
-            Add to Cart
-          </Button>
+        <div className="p-5">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="font-medium text-gray-800 dark:text-gray-100 group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors duration-300">{product.name}</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{product.category}</p>
+            </div>
+            <div className="flex items-center">
+              {product.salePrice ? (
+                <div className="text-right">
+                  <span className="text-gray-400 line-through text-sm mr-2">
+                    ${product.price.toFixed(2)}
+                  </span>
+                  <span className="font-semibold text-red-500 dark:text-red-400">
+                    ${product.salePrice.toFixed(2)}
+                  </span>
+                </div>
+              ) : (
+                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                  ${product.price.toFixed(2)}
+                </span>
+              )}
+            </div>
+          </div>
+          
+          <div className="mt-5">
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+            >
+              <Button 
+                onClick={handleAddToCart}
+                className="w-full bg-leaf-600 hover:bg-leaf-700 dark:bg-leaf-700 dark:hover:bg-leaf-600 text-white flex items-center justify-center gap-2 rounded-xl"
+              >
+                <Plus size={16} className="opacity-75" />
+                Add to Cart
+              </Button>
+            </motion.div>
+          </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </motion.div>
   );
 };
 

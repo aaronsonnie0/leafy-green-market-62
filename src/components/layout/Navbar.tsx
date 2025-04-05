@@ -1,66 +1,105 @@
 
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Menu, X, Search, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { useWishlist } from "@/hooks/use-wishlist";
+import { ThemeToggle } from "@/components/theme/theme-toggle";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const { items } = useCart();
   const { items: wishlistItems } = useWishlist();
+  const location = useLocation();
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location]);
+
   return (
-    <nav className="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <nav className={`sticky top-0 z-50 transition-all duration-300 ${
+      isScrolled ? "glassmorphism shadow-sm py-2" : "bg-background py-4"
+    }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
+        <div className="flex justify-between items-center h-16">
           {/* Logo and brand */}
-          <div className="flex-shrink-0 flex items-center">
+          <motion.div 
+            className="flex-shrink-0 flex items-center"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-serif font-bold text-leaf-600">Greens</span>
-              <span className="ml-1 text-2xl font-serif text-soil-500">& Pots</span>
+              <span className="text-2xl font-serif font-bold text-leaf-600 dark:text-leaf-400">Greens</span>
+              <span className="ml-1 text-2xl font-serif text-soil-500 dark:text-soil-400">& Pots</span>
             </Link>
-          </div>
+          </motion.div>
 
           {/* Desktop navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <Link to="/category/plants" className="text-gray-700 hover:text-leaf-600 transition-colors">Plants</Link>
-            <Link to="/category/pots" className="text-gray-700 hover:text-leaf-600 transition-colors">Pots</Link>
-            <Link to="/category/accessories" className="text-gray-700 hover:text-leaf-600 transition-colors">Accessories</Link>
-            <Link to="/care-guides" className="text-gray-700 hover:text-leaf-600 transition-colors">Care Guides</Link>
-            <Link to="/new-arrivals" className="text-gray-700 hover:text-leaf-600 transition-colors">New Arrivals</Link>
-            <Link to="/about" className="text-gray-700 hover:text-leaf-600 transition-colors">About Us</Link>
+            <NavLink to="/category/plants">Plants</NavLink>
+            <NavLink to="/category/pots">Pots</NavLink>
+            <NavLink to="/category/accessories">Accessories</NavLink>
+            <NavLink to="/care-guides">Care Guides</NavLink>
+            <NavLink to="/new-arrivals">New Arrivals</NavLink>
+            <NavLink to="/about">About Us</NavLink>
           </div>
 
           {/* Cart and search */}
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+            
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search size={20} />
             </Button>
             
             <Link to="/wishlist" className="relative">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="relative">
                 <Heart size={20} />
                 {wishlistItems.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="absolute -top-1 -right-1 bg-red-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                  >
                     {wishlistItems.length}
-                  </span>
+                  </motion.span>
                 )}
               </Button>
             </Link>
             
             <Link to="/cart" className="relative">
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="relative">
                 <ShoppingCart size={20} />
                 {items.length > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-leaf-500 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full">
+                  <motion.span 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    className="absolute -top-1 -right-1 bg-leaf-500 dark:bg-leaf-400 text-white text-xs w-5 h-5 flex items-center justify-center rounded-full"
+                  >
                     {items.length}
-                  </span>
+                  </motion.span>
                 )}
               </Button>
             </Link>
@@ -68,6 +107,7 @@ const Navbar = () => {
             <button 
               onClick={toggleMenu}
               className="md:hidden flex items-center"
+              aria-label="Toggle menu"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -76,20 +116,58 @@ const Navbar = () => {
       </div>
 
       {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white p-4 animate-fade-in">
-          <div className="flex flex-col space-y-4">
-            <Link to="/category/plants" className="text-gray-700 py-2 border-b border-gray-100">Plants</Link>
-            <Link to="/category/pots" className="text-gray-700 py-2 border-b border-gray-100">Pots</Link>
-            <Link to="/category/accessories" className="text-gray-700 py-2 border-b border-gray-100">Accessories</Link>
-            <Link to="/care-guides" className="text-gray-700 py-2 border-b border-gray-100">Care Guides</Link>
-            <Link to="/new-arrivals" className="text-gray-700 py-2 border-b border-gray-100">New Arrivals</Link>
-            <Link to="/about" className="text-gray-700 py-2 border-b border-gray-100">About Us</Link>
-            <Link to="/wishlist" className="text-gray-700 py-2">Wishlist</Link>
-          </div>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div 
+            className="md:hidden glassmorphism overflow-hidden"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          >
+            <div className="px-4 py-6 space-y-4">
+              <NavLink to="/category/plants" mobile>Plants</NavLink>
+              <NavLink to="/category/pots" mobile>Pots</NavLink>
+              <NavLink to="/category/accessories" mobile>Accessories</NavLink>
+              <NavLink to="/care-guides" mobile>Care Guides</NavLink>
+              <NavLink to="/new-arrivals" mobile>New Arrivals</NavLink>
+              <NavLink to="/about" mobile>About Us</NavLink>
+              <NavLink to="/wishlist" mobile>Wishlist</NavLink>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
+  );
+};
+
+interface NavLinkProps {
+  to: string;
+  children: React.ReactNode;
+  mobile?: boolean;
+}
+
+const NavLink = ({ to, children, mobile = false }: NavLinkProps) => {
+  const location = useLocation();
+  const isActive = location.pathname === to || location.pathname.startsWith(`${to}/`);
+  
+  const baseClasses = "transition-colors duration-200";
+  const mobileClasses = "block py-2 text-base";
+  const desktopClasses = "inline-block animated-border text-foreground";
+  const activeClasses = "text-leaf-600 dark:text-leaf-400 font-medium";
+  const inactiveClasses = "text-gray-700 dark:text-gray-300 hover:text-leaf-600 dark:hover:text-leaf-400";
+  
+  return (
+    <Link 
+      to={to} 
+      className={`
+        ${baseClasses}
+        ${mobile ? mobileClasses : desktopClasses}
+        ${isActive ? activeClasses : inactiveClasses}
+      `}
+    >
+      {children}
+    </Link>
   );
 };
 
