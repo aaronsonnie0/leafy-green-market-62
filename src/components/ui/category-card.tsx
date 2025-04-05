@@ -41,7 +41,7 @@ export function CategoryCard({ title, description, link, bgColor, icon, delay = 
         <div className="p-3 rounded-full bg-white/50 mr-3">
           {renderIcon()}
         </div>
-        <h3 className="text-xl font-serif font-medium">{title}</h3>
+        <h3 className="text-xl font-medium">{title}</h3>
       </div>
       <p className="mb-5 text-gray-600 font-light">{description}</p>
       <Link to={link} className="shop-now-link group">

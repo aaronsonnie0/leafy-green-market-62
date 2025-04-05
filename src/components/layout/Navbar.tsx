@@ -51,9 +51,11 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-serif font-normal tracking-wider text-foreground">
-                GREENS & POTS
-              </span>
+              <img 
+                src="/lovable-uploads/92d5cb2e-7036-4de8-ba5a-f9248a7a70f9.png" 
+                alt="Greens & Pots" 
+                className="h-8"
+              />
             </Link>
           </motion.div>
 

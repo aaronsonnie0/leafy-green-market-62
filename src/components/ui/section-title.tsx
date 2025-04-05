@@ -18,7 +18,7 @@ export function SectionTitle({ title, description, center = false, delay = 0 }: 
       viewport={{ once: true, margin: "-100px" }}
       className={`mb-16 ${center ? "text-center" : ""}`}
     >
-      <h2 className="font-serif font-medium text-3xl md:text-4xl mb-4 tracking-wide">{title}</h2>
+      <h2 className="text-3xl md:text-4xl mb-4 tracking-wide font-medium">{title}</h2>
       {description && (
         <p className="text-base md:text-lg text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
           {description}

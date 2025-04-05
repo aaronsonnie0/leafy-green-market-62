@@ -1,4 +1,3 @@
-
 import { fontFamily } from "tailwindcss/defaultTheme";
 import type { Config } from "tailwindcss";
 
@@ -74,8 +73,7 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["Inter", "DM Sans", ...fontFamily.sans],
-        serif: ["Playfair Display", "DM Serif Display", ...fontFamily.serif],
+        sans: ["Poppins", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {

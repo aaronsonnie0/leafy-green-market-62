@@ -11,8 +11,11 @@ const Footer = () => {
           {/* Brand and description */}
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-serif font-bold text-leaf-600">Greens</span>
-              <span className="ml-1 text-xl font-serif text-soil-500">& Pots</span>
+              <img 
+                src="/lovable-uploads/92d5cb2e-7036-4de8-ba5a-f9248a7a70f9.png" 
+                alt="Greens & Pots" 
+                className="h-8"
+              />
             </Link>
             <p className="mt-4 text-sm text-gray-600">
               Bringing nature indoors with our curated collection of beautiful plants and pots.
