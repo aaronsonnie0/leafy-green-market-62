@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -24,6 +25,31 @@ export default {
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				// Custom colors for our plant shop
+				leaf: {
+					50: '#F2FCF5',
+					100: '#E0F7E8',
+					200: '#C1EED1',
+					300: '#9AE0B2',
+					400: '#6AC885',
+					500: '#4DB370',
+					600: '#378E55',
+					700: '#2B6C42',
+					800: '#1F4D30',
+					900: '#153621',
+				},
+				soil: {
+					50: '#FAF6F0',
+					100: '#F5EDE2',
+					200: '#EBDBC5',
+					300: '#DFC5A4',
+					400: '#D0AA7A',
+					500: '#BB8C55',
+					600: '#A47747',
+					700: '#835D37',
+					800: '#5E422A',
+					900: '#3C2A1B',
+				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -84,11 +110,25 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'fade-in': {
+					'0%': { opacity: '0' },
+					'100%': { opacity: '1' }
+				},
+				'bounce-subtle': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-5px)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.5s ease-out',
+				'bounce-subtle': 'bounce-subtle 2s infinite ease-in-out'
+			},
+			fontFamily: {
+				sans: ['Inter', 'sans-serif'],
+				serif: ['Playfair Display', 'serif'],
 			}
 		}
 	},
