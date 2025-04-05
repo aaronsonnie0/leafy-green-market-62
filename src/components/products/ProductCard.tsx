@@ -87,7 +87,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         <div className="p-4">
           <div className="flex justify-between items-start">
             <div className="text-left">
-              <h3 className="font-medium text-sm text-gray-800 dark:text-gray-100 group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors duration-300 font-sans">{product.name}</h3>
+              <h3 className="font-medium text-xs text-gray-800 dark:text-gray-100 group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors duration-300 font-sans">{product.name}</h3>
               <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-sans">{product.category}</p>
             </div>
             <div className="text-right">
@@ -96,12 +96,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
                   <span className="text-gray-400 line-through text-xs mr-1.5">
                     ${product.price.toFixed(2)}
                   </span>
-                  <span className="font-medium text-sm text-red-500 dark:text-red-400">
+                  <span className="font-medium text-xs text-red-500 dark:text-red-400">
                     ${product.salePrice.toFixed(2)}
                   </span>
                 </div>
               ) : (
-                <span className="font-medium text-sm text-gray-800 dark:text-gray-200">
+                <span className="font-medium text-xs text-gray-800 dark:text-gray-200">
                   ${product.price.toFixed(2)}
                 </span>
               )}
@@ -115,10 +115,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
             >
               <Button 
                 onClick={handleAddToCart}
-                className="w-full bg-leaf-600 hover:bg-leaf-700 dark:bg-leaf-700 dark:hover:bg-leaf-600 text-white flex items-center justify-center gap-1.5 rounded-lg text-xs py-2 h-auto"
+                className="w-full bg-leaf-600 hover:bg-leaf-700 dark:bg-leaf-700 dark:hover:bg-leaf-600 text-white flex items-center justify-center gap-1.5 rounded-lg text-xs py-1.5 h-auto"
                 size="sm"
               >
-                <Plus size={14} className="opacity-75" />
+                <Plus size={12} className="opacity-75" />
                 Add to Cart
               </Button>
             </motion.div>

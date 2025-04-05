@@ -5,7 +5,6 @@ import { ShoppingCart, Menu, X, Search, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { useWishlist } from "@/hooks/use-wishlist";
-import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
@@ -52,9 +51,9 @@ const Navbar = () => {
           >
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/92d5cb2e-7036-4de8-ba5a-f9248a7a70f9.png" 
+                src="/lovable-uploads/d42305a7-055c-426a-9f7b-f2532c96f41c.png" 
                 alt="Greens & Pots" 
-                className="h-10" // Increased from h-8
+                className="h-12" 
               />
             </Link>
           </motion.div>
@@ -69,8 +68,6 @@ const Navbar = () => {
 
           {/* Cart and search */}
           <div className="flex items-center space-x-2">
-            <ThemeToggle />
-            
             <Button variant="ghost" size="icon" className="hidden md:flex">
               <Search size={20} />
             </Button>

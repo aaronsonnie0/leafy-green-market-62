@@ -17,6 +17,7 @@ const NewArrivalsPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8 }}
+          className="text-center"
         >
           <div className="text-center mb-16">
             <motion.div
@@ -54,8 +55,9 @@ const NewArrivalsPage = () => {
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, delay: 0.3 }}
+            className="text-center"
           >
-            <ProductGrid products={newArrivals} />
+            <ProductGrid products={newArrivals} centered={true} />
           </motion.div>
 
           <motion.div

@@ -173,16 +173,18 @@ const Index = () => {
       {/* Featured Products Section */}
       <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
+          <div className="flex flex-col items-center justify-center mb-12">
             <SectionTitle
               title="New Arrivals"
               description="Our latest additions to help you create your perfect indoor garden"
+              center={true}
             />
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               viewport={{ once: true }}
+              className="mt-4"
             >
               <Link to="/new-arrivals" className="inline-flex items-center text-leaf-600 font-medium hover:text-leaf-800 transition-colors duration-300">
                 View All
@@ -191,7 +193,7 @@ const Index = () => {
             </motion.div>
           </div>
           
-          <ProductGrid products={featuredProducts} />
+          <ProductGrid products={featuredProducts} centered={true} />
         </div>
       </section>
 
