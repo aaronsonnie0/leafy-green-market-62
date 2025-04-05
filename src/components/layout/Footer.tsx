@@ -54,6 +54,11 @@ const Footer = () => {
                   New Arrivals
                 </Link>
               </li>
+              <li>
+                <Link to="/wishlist" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
+                  Wishlist
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -99,13 +104,13 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
-                  Careers
+                <Link to="/privacy-policy" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
+                  Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/privacy-policy" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
-                  Privacy Policy
+                <Link to="/contact" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
+                  Contact
                 </Link>
               </li>
             </ul>
