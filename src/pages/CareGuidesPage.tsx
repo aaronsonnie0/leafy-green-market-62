@@ -14,7 +14,7 @@ const CareGuidesPage = () => {
 
   const careCards = [
     {
-      icon: <Sun className="h-8 w-8 text-yellow-500" />,
+      icon: <Sun className="h-7 w-7 text-yellow-500" />,
       title: "Light Requirements",
       description: "Learn about the perfect lighting conditions for your plants",
       content: [
@@ -24,7 +24,7 @@ const CareGuidesPage = () => {
       ]
     },
     {
-      icon: <Droplet className="h-8 w-8 text-blue-500" />,
+      icon: <Droplet className="h-7 w-7 text-blue-500" />,
       title: "Watering Tips",
       description: "Master the art of proper watering for healthy plants",
       content: [
@@ -34,7 +34,7 @@ const CareGuidesPage = () => {
       ]
     },
     {
-      icon: <Leaf className="h-8 w-8 text-leaf-500" />,
+      icon: <Leaf className="h-7 w-7 text-leaf-500" />,
       title: "Soil & Nutrition",
       description: "Find the right soil mix and fertilization schedule",
       content: [
@@ -44,7 +44,7 @@ const CareGuidesPage = () => {
       ]
     },
     {
-      icon: <Wind className="h-8 w-8 text-gray-500" />,
+      icon: <Wind className="h-7 w-7 text-gray-500" />,
       title: "Environment & Humidity",
       description: "Create the perfect environment for your plants to thrive",
       content: [
@@ -57,46 +57,46 @@ const CareGuidesPage = () => {
 
   return (
     <Layout>
-      <div className="container mx-auto py-12 px-4">
-        {/* Hero Section */}
+      <div className="container mx-auto py-10 px-4">
+        {/* Hero Section - Refined typography and spacing */}
         <motion.div 
-          className="text-center mb-16"
+          className="text-center mb-12"
           initial="hidden"
           animate="visible"
           variants={fadeIn}
         >
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Plant Care Guides</h1>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <h1 className="text-3xl md:text-4xl font-medium mb-3 font-sans">Plant Care Guides</h1>
+          <p className="text-base text-gray-600 max-w-2xl mx-auto">
             Everything you need to know to help your plants thrive. From watering schedules to light requirements, we've got you covered.
           </p>
         </motion.div>
 
-        {/* Care Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+        {/* Care Cards - Improved spacing and structure */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14">
           {careCards.map((card, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              <Card className="h-full hover:shadow-md transition-shadow duration-300">
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="bg-leaf-50 p-3 rounded-full">{card.icon}</div>
+              <Card className="h-full hover:shadow-md transition-shadow duration-300 overflow-hidden">
+                <CardHeader className="flex flex-row items-center gap-3 pb-3">
+                  <div className="bg-leaf-50 p-2.5 rounded-full">{card.icon}</div>
                   <div>
-                    <CardTitle>{card.title}</CardTitle>
-                    <CardDescription>{card.description}</CardDescription>
+                    <CardTitle className="text-lg font-medium">{card.title}</CardTitle>
+                    <CardDescription className="text-sm">{card.description}</CardDescription>
                   </div>
                 </CardHeader>
-                <CardContent>
+                <CardContent className="pt-2">
                   <Accordion type="single" collapsible className="w-full">
                     {card.content.map((item, idx) => (
                       <AccordionItem key={idx} value={`item-${idx}`}>
-                        <AccordionTrigger className="text-left font-medium">
+                        <AccordionTrigger className="text-left text-sm font-medium py-3">
                           {item.title}
                         </AccordionTrigger>
                         <AccordionContent>
-                          <p className="text-gray-600">{item.text}</p>
+                          <p className="text-sm text-gray-600">{item.text}</p>
                         </AccordionContent>
                       </AccordionItem>
                     ))}
@@ -107,37 +107,37 @@ const CareGuidesPage = () => {
           ))}
         </div>
 
-        {/* Seasonal Care Section */}
+        {/* Seasonal Care Section - Improved spacing and typography */}
         <motion.div
-          className="bg-leaf-50 rounded-xl p-8 mb-16"
+          className="bg-leaf-50 rounded-xl p-6 md:p-8 mb-14"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-6 text-center">Seasonal Care Tips</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <h2 className="text-2xl font-medium mb-5 text-center">Seasonal Care Tips</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { season: "Spring", tips: "Increase watering as growth accelerates. Repot rootbound plants. Start fertilizing." },
               { season: "Summer", tips: "Protect from intense afternoon sun. Increase humidity. Watch for pests in warm weather." },
               { season: "Fall", tips: "Reduce watering as growth slows. Bring outdoor plants inside before frost. Stop fertilizing." },
               { season: "Winter", tips: "Water sparingly. Move plants away from cold drafts and heating vents. Clean dust from leaves." }
             ].map((item, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-lg shadow-sm">
-                <h3 className="text-xl font-semibold mb-3">{item.season}</h3>
-                <p className="text-gray-600">{item.tips}</p>
+              <div key={idx} className="bg-white p-5 rounded-lg shadow-sm">
+                <h3 className="text-base font-semibold mb-2">{item.season}</h3>
+                <p className="text-sm text-gray-600">{item.tips}</p>
               </div>
             ))}
           </div>
         </motion.div>
 
-        {/* Common Issues Section */}
+        {/* Common Issues Section - Improved typography and spacing */}
         <motion.div
-          className="mb-16"
+          className="mb-12"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-3xl font-bold mb-8 text-center">Troubleshooting Common Issues</h2>
+          <h2 className="text-2xl font-medium mb-6 text-center">Troubleshooting Common Issues</h2>
           <div className="max-w-4xl mx-auto">
             <Accordion type="single" collapsible className="w-full">
               {[
@@ -163,11 +163,11 @@ const CareGuidesPage = () => {
                 }
               ].map((item, idx) => (
                 <AccordionItem key={idx} value={`issue-${idx}`}>
-                  <AccordionTrigger className="text-lg font-medium">
+                  <AccordionTrigger className="text-base font-medium py-4">
                     {item.issue}
                   </AccordionTrigger>
                   <AccordionContent>
-                    <p className="text-gray-600">{item.solution}</p>
+                    <p className="text-sm text-gray-600">{item.solution}</p>
                   </AccordionContent>
                 </AccordionItem>
               ))}

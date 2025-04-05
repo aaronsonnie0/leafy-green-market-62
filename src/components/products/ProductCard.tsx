@@ -59,19 +59,19 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
           
           {product.salePrice && (
-            <div className="absolute top-3 right-3 glassmorphism text-red-500 text-xs font-bold px-3 py-1 rounded-full">
+            <div className="absolute top-2 right-2 glassmorphism text-red-500 text-xs font-medium px-2.5 py-0.5 rounded-full">
               SALE
             </div>
           )}
           
           <motion.button 
             onClick={handleWishlistToggle}
-            className="absolute top-3 left-3 glassmorphism rounded-full p-2 hover:bg-white/80 dark:hover:bg-black/50 transition-colors"
+            className="absolute top-2 left-2 glassmorphism rounded-full p-1.5 hover:bg-white/80 dark:hover:bg-black/50 transition-colors"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
           >
             <Heart 
-              size={18} 
+              size={16} 
               fill={isInWishlist(product.id) ? "#ef4444" : "none"} 
               color={isInWishlist(product.id) ? "#ef4444" : "#71717a"} 
             />
@@ -84,40 +84,41 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           />
         </div>
         
-        <div className="p-5">
+        <div className="p-4">
           <div className="flex justify-between items-start">
-            <div>
-              <h3 className="font-medium text-gray-800 dark:text-gray-100 group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors duration-300">{product.name}</h3>
-              <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{product.category}</p>
+            <div className="text-left">
+              <h3 className="font-medium text-sm text-gray-800 dark:text-gray-100 group-hover:text-leaf-600 dark:group-hover:text-leaf-400 transition-colors duration-300 font-sans">{product.name}</h3>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5 font-sans">{product.category}</p>
             </div>
-            <div className="flex items-center">
+            <div className="text-right">
               {product.salePrice ? (
-                <div className="text-right">
-                  <span className="text-gray-400 line-through text-sm mr-2">
+                <div>
+                  <span className="text-gray-400 line-through text-xs mr-1.5">
                     ${product.price.toFixed(2)}
                   </span>
-                  <span className="font-semibold text-red-500 dark:text-red-400">
+                  <span className="font-medium text-sm text-red-500 dark:text-red-400">
                     ${product.salePrice.toFixed(2)}
                   </span>
                 </div>
               ) : (
-                <span className="font-semibold text-gray-800 dark:text-gray-200">
+                <span className="font-medium text-sm text-gray-800 dark:text-gray-200">
                   ${product.price.toFixed(2)}
                 </span>
               )}
             </div>
           </div>
           
-          <div className="mt-5">
+          <div className="mt-3">
             <motion.div
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
               <Button 
                 onClick={handleAddToCart}
-                className="w-full bg-leaf-600 hover:bg-leaf-700 dark:bg-leaf-700 dark:hover:bg-leaf-600 text-white flex items-center justify-center gap-2 rounded-xl"
+                className="w-full bg-leaf-600 hover:bg-leaf-700 dark:bg-leaf-700 dark:hover:bg-leaf-600 text-white flex items-center justify-center gap-1.5 rounded-lg text-xs py-2 h-auto"
+                size="sm"
               >
-                <Plus size={16} className="opacity-75" />
+                <Plus size={14} className="opacity-75" />
                 Add to Cart
               </Button>
             </motion.div>

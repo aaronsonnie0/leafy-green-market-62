@@ -43,7 +43,7 @@ const Navbar = () => {
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo and brand */}
+          {/* Logo and brand - increased logo size */}
           <motion.div 
             className="flex-shrink-0 flex items-center"
             initial={{ opacity: 0, y: -10 }}
@@ -54,7 +54,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/92d5cb2e-7036-4de8-ba5a-f9248a7a70f9.png" 
                 alt="Greens & Pots" 
-                className="h-8"
+                className="h-10" // Increased from h-8
               />
             </Link>
           </motion.div>
