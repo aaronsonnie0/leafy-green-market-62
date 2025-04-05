@@ -7,7 +7,7 @@ import Layout from "@/components/layout/Layout";
 import ProductGrid from "@/components/products/ProductGrid";
 import { Button } from "@/components/ui/button";
 import { SectionTitle } from "@/components/ui/section-title";
-import { CategoryGrid } from "@/components/ui/category-grid";
+import { CategoryCard } from "@/components/ui/category-card";
 import { getFeaturedProducts } from "@/data/products";
 
 const Index = () => {
@@ -16,7 +16,7 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-leaf-50/70 to-white dark:from-leaf-950/20 dark:to-background py-20 md:py-32">
+      <section className="relative overflow-hidden bg-gradient-to-b from-leaf-50/70 to-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <motion.div
@@ -24,11 +24,11 @@ const Index = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6 leading-tight">
+              <h1 className="font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-gray-900 mb-6 leading-tight">
                 Bring Nature's Beauty <br className="hidden md:block" />
-                <span className="text-leaf-600 dark:text-leaf-400">Into Your Home</span>
+                <span className="text-leaf-600">Into Your Home</span>
               </h1>
-              <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-lg">
+              <p className="text-lg md:text-xl text-gray-600 mb-8 max-w-lg">
                 Discover our curated collection of beautiful plants, stylish pots, and essential accessories to create your own indoor oasis.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -62,7 +62,7 @@ const Index = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="relative"
             >
-              <div className="aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white dark:border-gray-800">
+              <div className="aspect-square rounded-full overflow-hidden shadow-2xl border-8 border-white">
                 <img
                   src="/placeholder.svg"
                   alt="Beautiful indoor plant in a decorative pot"
@@ -75,7 +75,7 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-gray-900/10">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <motion.div
@@ -85,8 +85,8 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col items-center text-center p-6"
             >
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 dark:bg-leaf-900/30 mb-5">
-                <Leaf className="h-8 w-8 text-leaf-600 dark:text-leaf-400" />
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 mb-5">
+                <Leaf className="h-8 w-8 text-leaf-600" />
               </div>
               <h3 className="font-serif text-xl mb-3">Expertly Curated</h3>
               <p>Each plant in our collection is carefully selected for beauty and resilience.</p>
@@ -98,8 +98,8 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col items-center text-center p-6"
             >
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 dark:bg-leaf-900/30 mb-5">
-                <CheckCircle2 className="h-8 w-8 text-leaf-600 dark:text-leaf-400" />
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 mb-5">
+                <CheckCircle2 className="h-8 w-8 text-leaf-600" />
               </div>
               <h3 className="font-serif text-xl mb-3">Quality Guaranteed</h3>
               <p>We guarantee healthy, thriving plants or your money back, no questions asked.</p>
@@ -111,8 +111,8 @@ const Index = () => {
               viewport={{ once: true, margin: "-100px" }}
               className="flex flex-col items-center text-center p-6"
             >
-              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 dark:bg-leaf-900/30 mb-5">
-                <Droplet className="h-8 w-8 text-leaf-600 dark:text-leaf-400" />
+              <div className="w-16 h-16 flex items-center justify-center rounded-full bg-leaf-50 mb-5">
+                <Droplet className="h-8 w-8 text-leaf-600" />
               </div>
               <h3 className="font-serif text-xl mb-3">Care Support</h3>
               <p>Detailed care guides and ongoing support to help your plants thrive.</p>
@@ -122,10 +122,52 @@ const Index = () => {
       </section>
 
       {/* Shop by Category Section */}
-      <CategoryGrid />
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            title="Shop by Category" 
+            description="Explore our wide range of categories to find the perfect addition to your indoor garden"
+            center={true}
+          />
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <CategoryCard
+              title="Indoor Plants"
+              description="Perfect for purifying air and adding life to your space"
+              link="/category/plants"
+              bgColor="bg-[#F2FCE2]"
+              delay={0.1}
+            />
+            
+            <CategoryCard
+              title="Designer Pots"
+              description="Stylish containers that complement your home décor"
+              link="/category/pots"
+              bgColor="bg-[#FDE1D3]"
+              delay={0.2}
+            />
+            
+            <CategoryCard
+              title="Plant Care"
+              description="Everything you need to keep your plants thriving"
+              link="/category/accessories"
+              bgColor="bg-[#D3E4FD]"
+              delay={0.3}
+            />
+            
+            <CategoryCard
+              title="Gift Sets"
+              description="Pre-arranged combinations for the perfect present"
+              link="/new-arrivals"
+              bgColor="bg-[#F1F0FB]"
+              delay={0.4}
+            />
+          </div>
+        </div>
+      </section>
 
       {/* Featured Products Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-gray-900/10">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between mb-12">
             <SectionTitle
@@ -150,7 +192,7 @@ const Index = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-16 md:py-24 bg-leaf-50 dark:bg-leaf-900/10">
+      <section className="py-16 md:py-24 bg-leaf-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionTitle
             title="What Our Customers Say"
@@ -166,7 +208,7 @@ const Index = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 viewport={{ once: true, margin: "-100px" }}
-                className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md"
+                className="bg-white p-6 rounded-2xl shadow-md"
               >
                 <div className="flex items-center mb-4">
                   {[...Array(5)].map((_, j) => (
@@ -186,7 +228,7 @@ const Index = () => {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-gray-900/10 border-t border-gray-100 dark:border-gray-800">
+      <section className="py-16 md:py-24 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <motion.div
@@ -196,14 +238,14 @@ const Index = () => {
               viewport={{ once: true }}
             >
               <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-4">Join Our Newsletter</h2>
-              <p className="text-gray-600 dark:text-gray-300 mb-8">
+              <p className="text-gray-600 mb-8">
                 Sign up to receive updates on new plants, care tips, and exclusive offers.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 mx-auto justify-center">
                 <input
                   type="email"
                   placeholder="Your email address"
-                  className="px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-800 dark:text-white rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf-500 focus:border-transparent min-w-[250px]"
+                  className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-leaf-500 focus:border-transparent min-w-[250px]"
                 />
                 <Button className="bg-leaf-600 hover:bg-leaf-700 text-white">
                   Subscribe

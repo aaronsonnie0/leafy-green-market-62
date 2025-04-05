@@ -24,7 +24,6 @@ import NewArrivalsPage from "./pages/NewArrivalsPage";
 import ContactPage from "./pages/ContactPage";
 import ShippingPage from "./pages/ShippingPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
-import FeaturedPage from "./pages/FeaturedPage";
 
 const queryClient = new QueryClient();
 
@@ -51,7 +50,6 @@ const App = () => (
                 <Route path="/sustainability" element={<SustainabilityPage />} />
                 <Route path="/wishlist" element={<WishlistPage />} />
                 <Route path="/new-arrivals" element={<NewArrivalsPage />} />
-                <Route path="/featured" element={<FeaturedPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/shipping" element={<ShippingPage />} />
                 <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />

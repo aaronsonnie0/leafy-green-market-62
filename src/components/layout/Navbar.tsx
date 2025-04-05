@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { ShoppingCart, Menu, X, Search, Heart } from "lucide-react";
@@ -50,7 +51,8 @@ const Navbar = () => {
             transition={{ duration: 0.5 }}
           >
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-serif tracking-tight text-foreground">Greens & Pots</span>
+              <span className="text-2xl font-serif font-bold text-leaf-600 dark:text-leaf-400">Greens</span>
+              <span className="ml-1 text-2xl font-serif text-soil-500 dark:text-soil-400">& Pots</span>
             </Link>
           </motion.div>
 
@@ -59,8 +61,8 @@ const Navbar = () => {
             <NavLink to="/category/plants">Plants</NavLink>
             <NavLink to="/category/pots">Pots</NavLink>
             <NavLink to="/category/accessories">Accessories</NavLink>
-            <NavLink to="/featured">Featured</NavLink>
             <NavLink to="/care-guides">Care Guides</NavLink>
+            <NavLink to="/new-arrivals">New Arrivals</NavLink>
             <NavLink to="/about">About Us</NavLink>
           </div>
 
@@ -127,8 +129,8 @@ const Navbar = () => {
               <NavLink to="/category/plants" mobile>Plants</NavLink>
               <NavLink to="/category/pots" mobile>Pots</NavLink>
               <NavLink to="/category/accessories" mobile>Accessories</NavLink>
-              <NavLink to="/featured" mobile>Featured</NavLink>
               <NavLink to="/care-guides" mobile>Care Guides</NavLink>
+              <NavLink to="/new-arrivals" mobile>New Arrivals</NavLink>
               <NavLink to="/about" mobile>About Us</NavLink>
               <NavLink to="/wishlist" mobile>Wishlist</NavLink>
             </div>
