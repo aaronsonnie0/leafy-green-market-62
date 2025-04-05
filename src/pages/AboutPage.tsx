@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Leaf, Droplet, Recycle } from "lucide-react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import CountUp from "@/components/ui/count-up";
 
 const AboutPage = () => {
   return (
@@ -81,7 +82,7 @@ const AboutPage = () => {
         </div>
       </section>
       
-      {/* Impact Section */}
+      {/* Impact Section - Updated with CountUp */}
       <section className="py-20 bg-leaf-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div 
@@ -112,17 +113,9 @@ const AboutPage = () => {
                 <Leaf className="w-12 h-12 text-leaf-600" />
               </div>
               <motion.h3 
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 100,
-                  delay: 0.4
-                }}
-                viewport={{ once: true }}
                 className="text-5xl font-bold text-gray-800 mb-3"
               >
-                25,000+
+                <CountUp end={25000} suffix="+" />
               </motion.h3>
               <p className="text-lg text-gray-600">Plants Delivered</p>
             </motion.div>
@@ -138,18 +131,10 @@ const AboutPage = () => {
               <div className="w-24 h-24 bg-leaf-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Droplet className="w-12 h-12 text-leaf-600" />
               </div>
-              <motion.h3 
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 100,
-                  delay: 0.5
-                }}
-                viewport={{ once: true }}
+              <motion.h3
                 className="text-5xl font-bold text-gray-800 mb-3"
               >
-                44,000+
+                <CountUp end={44000} suffix="+" />
               </motion.h3>
               <p className="text-lg text-gray-600">Liters of Oxygen Produced</p>
             </motion.div>
@@ -165,18 +150,10 @@ const AboutPage = () => {
               <div className="w-24 h-24 bg-leaf-100 rounded-full flex items-center justify-center mx-auto mb-6">
                 <Recycle className="w-12 h-12 text-leaf-600" />
               </div>
-              <motion.h3 
-                initial={{ scale: 0.9 }}
-                whileInView={{ scale: 1 }}
-                transition={{ 
-                  type: "spring",
-                  stiffness: 100,
-                  delay: 0.6
-                }}
-                viewport={{ once: true }}
+              <motion.h3
                 className="text-5xl font-bold text-gray-800 mb-3"
               >
-                16,500+
+                <CountUp end={16500} suffix="+" />
               </motion.h3>
               <p className="text-lg text-gray-600">Pots Recycled</p>
             </motion.div>

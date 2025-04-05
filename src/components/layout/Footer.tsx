@@ -8,16 +8,9 @@ const Footer = () => {
     <footer className="bg-leaf-50 pt-12 pb-8 border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand and description */}
+          {/* Brand and description - logo removed */}
           <div className="col-span-1 md:col-span-1">
-            <Link to="/" className="flex items-center">
-              <img 
-                src="/lovable-uploads/d42305a7-055c-426a-9f7b-f2532c96f41c.png" 
-                alt="Greens & Pots" 
-                className="h-10"
-              />
-            </Link>
-            <p className="mt-4 text-sm text-gray-600">
+            <p className="text-sm text-gray-600">
               Bringing nature indoors with our curated collection of beautiful plants and pots.
             </p>
             <div className="mt-6 flex space-x-4">

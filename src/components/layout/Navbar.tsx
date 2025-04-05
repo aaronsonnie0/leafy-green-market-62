@@ -34,6 +34,10 @@ const Navbar = () => {
   // Close menu when route changes
   useEffect(() => {
     setIsMenuOpen(false);
+    // Scroll to top when navigating to category pages
+    if (location.pathname.startsWith('/category/')) {
+      window.scrollTo(0, 0);
+    }
   }, [location]);
 
   return (
@@ -53,7 +57,7 @@ const Navbar = () => {
               <img 
                 src="/lovable-uploads/d42305a7-055c-426a-9f7b-f2532c96f41c.png" 
                 alt="Greens & Pots" 
-                className="h-12" 
+                className="h-14" // Increased from h-12 to h-14
               />
             </Link>
           </motion.div>

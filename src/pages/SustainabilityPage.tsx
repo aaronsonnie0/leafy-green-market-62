@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Layout from "@/components/layout/Layout";
 import { Leaf, Recycle, Award, TreeDeciduous } from "lucide-react";
+import CountUp from "@/components/ui/count-up";
 
 const SustainabilityPage = () => {
   const fadeIn = {
@@ -74,7 +75,7 @@ const SustainabilityPage = () => {
           </div>
         </motion.div>
 
-        {/* Our Impact Section */}
+        {/* Our Impact Section - Updated with CountUp */}
         <motion.div 
           className="mb-16"
           initial={{ opacity: 0 }}
@@ -85,17 +86,20 @@ const SustainabilityPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               { 
-                metric: "50,000+", 
+                metric: 50000, 
+                suffix: "+",
                 description: "Plants Sold", 
                 detail: "Each adding more oxygen to homes across the country."
               },
               { 
-                metric: "5,000+", 
+                metric: 5000, 
+                suffix: "+",
                 description: "Trees Planted", 
                 detail: "Through our reforestation partnerships around the world."
               },
               { 
-                metric: "30 Tons", 
+                metric: 30, 
+                suffix: " Tons",
                 description: "Plastic Saved", 
                 detail: "By using sustainable packaging solutions."
               }
@@ -105,7 +109,9 @@ const SustainabilityPage = () => {
                 className="bg-leaf-50 rounded-lg p-8 text-center hover:shadow-md transition-shadow duration-300"
                 whileHover={{ y: -5 }}
               >
-                <p className="text-4xl font-bold text-leaf-600 mb-2">{item.metric}</p>
+                <p className="text-4xl font-bold text-leaf-600 mb-2">
+                  <CountUp end={item.metric} suffix={item.suffix} />
+                </p>
                 <p className="text-xl font-medium mb-2">{item.description}</p>
                 <p className="text-gray-600">{item.detail}</p>
               </motion.div>
