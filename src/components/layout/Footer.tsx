@@ -11,8 +11,8 @@ const Footer = () => {
           {/* Brand and description */}
           <div className="col-span-1 md:col-span-1">
             <Link to="/" className="flex items-center">
-              <span className="text-xl font-serif font-bold text-leaf-600">Leafy</span>
-              <span className="ml-1 text-xl font-serif text-soil-500">Green</span>
+              <span className="text-xl font-serif font-bold text-leaf-600">Greens</span>
+              <span className="ml-1 text-xl font-serif text-soil-500">& Pots</span>
             </Link>
             <p className="mt-4 text-sm text-gray-600">
               Bringing nature indoors with our curated collection of beautiful plants and pots.
@@ -114,7 +114,7 @@ const Footer = () => {
 
         {/* Bottom section */}
         <div className="pt-8 mt-8 border-t border-gray-200 text-center text-sm text-gray-600">
-          <p>© {new Date().getFullYear()} Leafy Green. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Greens & Pots. All rights reserved.</p>
         </div>
       </div>
     </footer>

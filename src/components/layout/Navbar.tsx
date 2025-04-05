@@ -20,8 +20,8 @@ const Navbar = () => {
           {/* Logo and brand */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
-              <span className="text-2xl font-serif font-bold text-leaf-600">Leafy</span>
-              <span className="ml-1 text-2xl font-serif text-soil-500">Green</span>
+              <span className="text-2xl font-serif font-bold text-leaf-600">Greens</span>
+              <span className="ml-1 text-2xl font-serif text-soil-500">& Pots</span>
             </Link>
           </div>
 
@@ -31,6 +31,7 @@ const Navbar = () => {
             <Link to="/category/pots" className="text-gray-700 hover:text-leaf-600 transition-colors">Pots</Link>
             <Link to="/category/accessories" className="text-gray-700 hover:text-leaf-600 transition-colors">Accessories</Link>
             <Link to="/care-guides" className="text-gray-700 hover:text-leaf-600 transition-colors">Care Guides</Link>
+            <Link to="/about" className="text-gray-700 hover:text-leaf-600 transition-colors">About Us</Link>
           </div>
 
           {/* Cart and search */}
@@ -65,7 +66,8 @@ const Navbar = () => {
             <Link to="/category/plants" className="text-gray-700 py-2 border-b border-gray-100">Plants</Link>
             <Link to="/category/pots" className="text-gray-700 py-2 border-b border-gray-100">Pots</Link>
             <Link to="/category/accessories" className="text-gray-700 py-2 border-b border-gray-100">Accessories</Link>
-            <Link to="/care-guides" className="text-gray-700 py-2">Care Guides</Link>
+            <Link to="/care-guides" className="text-gray-700 py-2 border-b border-gray-100">Care Guides</Link>
+            <Link to="/about" className="text-gray-700 py-2">About Us</Link>
           </div>
         </div>
       )}
