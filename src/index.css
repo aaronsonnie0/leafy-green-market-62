@@ -98,7 +98,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif tracking-tight leading-tight;
+    @apply font-serif tracking-tight leading-tighter;
   }
 
   h1 {
@@ -122,11 +122,15 @@
   }
   
   p {
-    @apply text-base text-gray-600 dark:text-gray-300 leading-relaxed;
+    @apply text-base text-muted-foreground leading-relaxed font-light;
   }
   
   small {
-    @apply text-sm text-gray-500;
+    @apply text-sm text-muted-foreground/80;
+  }
+
+  a {
+    @apply transition-colors duration-200;
   }
 }
 
@@ -182,6 +186,26 @@
   .shop-now-link {
     @apply inline-flex items-center text-leaf-600 font-medium hover:text-leaf-800 transition-colors duration-300;
   }
+
+  .page-header {
+    @apply relative overflow-hidden bg-gradient-to-b from-leaf-50/70 via-white/80 to-white dark:from-leaf-950/20 dark:via-background/90 dark:to-background py-12 md:py-20;
+  }
+
+  .page-title {
+    @apply font-serif font-bold text-4xl md:text-5xl lg:text-6xl text-foreground mb-4 leading-tight tracking-tight;
+  }
+
+  .page-description {
+    @apply text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed;
+  }
+
+  .card-gradient {
+    @apply bg-gradient-to-br from-card to-secondary/80 backdrop-blur-sm;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-foreground via-foreground/90 to-foreground/70 bg-clip-text text-transparent;
+  }
 }
 
 @layer utilities {
@@ -206,4 +230,12 @@
   .text-shadow-sm {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
   }
+}
+
+// Remove unused styles from App.css
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center;
 }
