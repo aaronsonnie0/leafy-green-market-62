@@ -62,7 +62,7 @@ const Footer = () => {
             <h3 className="text-sm font-semibold text-gray-800 uppercase tracking-wider">Help</h3>
             <ul className="mt-4 space-y-2">
               <li>
-                <Link to="/care-guides" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
+                <Link to="/plant-care" className="text-gray-600 hover:text-leaf-600 transition-colors text-sm">
                   Plant Care
                 </Link>
               </li>

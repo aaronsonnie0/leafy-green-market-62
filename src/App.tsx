@@ -13,6 +13,10 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutSuccess from "./pages/CheckoutSuccess";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
+import CareGuidesPage from "./pages/CareGuidesPage";
+import PlantCarePage from "./pages/PlantCarePage";
+import FAQPage from "./pages/FAQPage";
+import SustainabilityPage from "./pages/SustainabilityPage";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +35,10 @@ const App = () => (
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/checkout/success" element={<CheckoutSuccess />} />
             <Route path="/about" element={<AboutPage />} />
+            <Route path="/care-guides" element={<CareGuidesPage />} />
+            <Route path="/plant-care" element={<PlantCarePage />} />
+            <Route path="/faq" element={<FAQPage />} />
+            <Route path="/sustainability" element={<SustainabilityPage />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
