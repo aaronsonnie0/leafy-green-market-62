@@ -17,15 +17,15 @@ export function CategoryCard({ title, description, link, bgColor, delay = 0 }: C
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay: delay }}
+      transition={{ duration: 0.6, delay: delay }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`category-card ${bgColor} backdrop-blur-sm hover:shadow-xl transition-all duration-500`}
+      className={`category-card ${bgColor}`}
     >
-      <h3 className="text-2xl font-serif font-semibold mb-3 tracking-tight">{title}</h3>
-      <p className="mb-5 text-muted-foreground">{description}</p>
-      <Link to={link} className="shop-now-link group inline-flex items-center text-leaf-600 font-medium hover:text-leaf-800 transition-colors duration-300">
+      <h3 className="text-2xl font-serif font-semibold mb-3">{title}</h3>
+      <p className="mb-5 text-gray-600">{description}</p>
+      <Link to={link} className="shop-now-link group">
         Shop Now
-        <ArrowRight size={16} className="ml-1.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+        <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
       </Link>
     </motion.div>
   );

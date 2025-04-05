@@ -7,17 +7,6 @@ const config = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      typography: {
-        DEFAULT: {
-          css: {
-            fontFamily: "'Inter', sans-serif",
-            h1: { fontFamily: "'Playfair Display', serif" },
-            h2: { fontFamily: "'Playfair Display', serif" },
-            h3: { fontFamily: "'Playfair Display', serif" },
-            h4: { fontFamily: "'Playfair Display', serif" },
-          },
-        },
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -79,10 +68,6 @@ const config = {
           950: "#381d18",
         },
       },
-      backgroundImage: {
-        'gradient-soft': 'linear-gradient(to bottom, var(--tw-gradient-stops))',
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
@@ -91,20 +76,6 @@ const config = {
       fontFamily: {
         sans: ["Inter", "DM Sans", ...fontFamily.sans],
         serif: ["Playfair Display", "DM Serif Display", ...fontFamily.serif],
-      },
-      letterSpacing: {
-        tighter: '-0.05em',
-        tight: '-0.025em',
-        normal: '0',
-        wide: '0.025em',
-        wider: '0.05em',
-        widest: '0.1em',
-      },
-      lineHeight: {
-        tighter: '1.1',
-        tight: '1.2',
-        snug: '1.375',
-        relaxed: '1.625',
       },
       keyframes: {
         "accordion-down": {

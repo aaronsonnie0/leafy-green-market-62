@@ -14,13 +14,13 @@ export function SectionTitle({ title, description, center = false, delay = 0 }: 
     <motion.div 
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.7, delay }}
+      transition={{ duration: 0.6, delay }}
       viewport={{ once: true, margin: "-100px" }}
-      className={`mb-14 ${center ? "text-center" : ""}`}
+      className={`mb-12 ${center ? "text-center" : ""}`}
     >
-      <h2 className="font-serif font-semibold text-3xl md:text-4xl lg:text-5xl mb-5 tracking-tight text-foreground">{title}</h2>
+      <h2 className="font-serif font-semibold text-3xl md:text-4xl mb-4">{title}</h2>
       {description && (
-        <p className="text-lg text-muted-foreground max-w-3xl leading-relaxed mx-auto">
+        <p className="text-lg text-gray-600 max-w-3xl mx-auto">
           {description}
         </p>
       )}
